@@ -12,4 +12,17 @@ from uuid import uuid4
 
 class SessionAuth(Auth):
     '''classs session'''
-    pass
+    user_id_by_session_id={}
+
+    def create_session(self, user_id: str = None) -> str:
+        '''creates a Session ID for a user_id'''
+        if user_id is None:
+            return None
+        if user_id is not str:
+            return None
+        id = uuid4()
+        self.user_id_by_session_id[str(id)]=user_id
+        return str(id)
+
+
+
