@@ -10,8 +10,7 @@ from sqlalchemy.orm.session import Session
 from sqlalchemy.exc import InvalidRequestError
 from sqlalchemy.orm.exc import NoResultFound
 
-from user import Base
-from user import User
+from user import Base,User
 
 
 class DB:
@@ -42,7 +41,7 @@ class DB:
         self._session.commit()
         return user
 
-    def find_user_by(self, **kwargs) -> user:
+    def find_user_by(self, **kwargs) -> User:
         '''find users in db'''
         if not kwargs:
             raise InvalidRequestError
