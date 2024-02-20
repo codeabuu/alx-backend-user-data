@@ -57,7 +57,7 @@ def logout() -> str:
     return redirect('/')
 
 
-@app.route('/profileb', methods=['GET'])
+@app.route('/profile', methods=['GET'])
 def profile() -> str:
     '''check user if exist'''
     session_id = request.cookies.get('session_id')
